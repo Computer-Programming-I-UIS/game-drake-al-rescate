@@ -12,7 +12,7 @@ void setup(){
 
 void draw(){
   background(0);
-  textSize(60);
+  textSize(90);
   text("Drake al rescate",width/2,200); 
   
 jugar.display();
