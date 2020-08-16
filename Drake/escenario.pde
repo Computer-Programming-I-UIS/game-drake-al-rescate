@@ -6,7 +6,7 @@ class escenario extends perro{
  
  void display(){
   PImage city1;
-  city1 = loadImage("city1.png");
-  image(city1,x,y,a,h);
+  city1 = loadImage("fondo 2.jpg");
+ image(city1,x,y,a,h);
  }
 }
