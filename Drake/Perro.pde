@@ -8,7 +8,7 @@ class perro {
   }
   
   void display(){
-    image(images[imageIndex],width/2,height/2,120,90);
+    image(images[imageIndex],x,y,a,h);
     imageIndex = (imageIndex+1)% images.length;
 }
 }

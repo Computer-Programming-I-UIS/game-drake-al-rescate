@@ -11,9 +11,11 @@ menu jugar;
 menu creditos;
 PImage titulo;
 perro Drake;
+escenario city1;
+
 int maxImages = 3;
 int imageIndex = 0;
- PImage [] images = new PImage[maxImages];
+PImage [] images = new PImage[maxImages];
 
 void setup(){
   size(1000,600);
@@ -21,11 +23,11 @@ void setup(){
   creditos = new menu(jugar.x,jugar.y+40,"CREDITOS");
   titulo = loadImage("titulo.png");
   Drake = new perro(20,500,120,90);
+  city1 = new escenario(-20,0,1200,600);
    for(int i = 0; i < images.length; i++){
-  images[i] = loadImage("Drake"+ i +".png"); 
-  frameRate(15);
-
- }
+      images[i] = loadImage("Drake"+ i +".png"); 
+      frameRate(15);
+   }
 }
 
 void draw(){
@@ -45,9 +47,9 @@ jugar.display();
 creditos.display();
  } 
    
- if(sel == 2){
-   background(255,0,0);
-   Drake.display();
+ if(sel == 2){ 
+   city1.display();
+   Drake.display();   
  }
  if(sel == 3){
    background(0,255,0);
