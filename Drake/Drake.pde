@@ -11,14 +11,21 @@ menu jugar;
 menu creditos;
 PImage titulo;
 perro Drake;
+int maxImages = 3;
+int imageIndex = 0;
+ PImage [] images = new PImage[maxImages];
 
 void setup(){
   size(1000,600);
   jugar = new menu((width/2),(height/2),"JUGAR");
   creditos = new menu(jugar.x,jugar.y+40,"CREDITOS");
- 
   titulo = loadImage("titulo.png");
   Drake = new perro(20,500,120,90);
+   for(int i = 0; i < images.length; i++){
+  images[i] = loadImage("Drake"+ i +".png"); 
+  frameRate(15);
+
+ }
 }
 
 void draw(){
