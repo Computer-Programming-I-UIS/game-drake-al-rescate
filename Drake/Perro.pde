@@ -8,8 +8,7 @@ class perro {
   }
   
   void display(){
-    PImage Drake;
-    Drake = loadImage("Drake.png");
-   image(Drake,x,y,a,h);
-  }
+    image(images[imageIndex],width/2,height/2,120,90);
+    imageIndex = (imageIndex+1)% images.length;
+}
 }
