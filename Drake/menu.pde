@@ -14,4 +14,7 @@ class menu {
     text(texto,x,y);
   }
   
+  void Credits(){
+    
+  }
 }

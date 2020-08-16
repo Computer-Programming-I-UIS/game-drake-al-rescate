@@ -16,6 +16,7 @@ escenario city1;
 int maxImages = 3;
 int imageIndex = 0;
 PImage [] images = new PImage[maxImages];
+PImage Drake1;
 
 void setup(){
   size(1000,600);
@@ -24,6 +25,7 @@ void setup(){
   titulo = loadImage("titulo.png");
   Drake = new perro(20,500,120,90);
   city1 = new escenario(-20,0,1200,600);
+  Drake1 = loadImage("Drake0.png");
    for(int i = 0; i < images.length; i++){
       images[i] = loadImage("Drake"+ i +".png"); 
       frameRate(15);
@@ -49,9 +51,11 @@ creditos.display();
    
  if(sel == 2){ 
    city1.display();
-   Drake.display();   
+   Drake.display(); 
+   Drake.move();
  }
  if(sel == 3){
-   background(0,255,0);
+   background(0);
+   
  }  
 }
