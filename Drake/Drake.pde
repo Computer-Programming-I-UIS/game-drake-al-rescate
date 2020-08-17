@@ -23,8 +23,8 @@ void setup(){
   jugar = new menu((width/2),(height/2),"JUGAR");
   creditos = new menu(jugar.x,jugar.y+40,"CREDITOS");
   titulo = loadImage("titulo.png");
-  Drake = new perro(20,500,120,90);
-  city1 = new escenario(-20,0,1200,600);
+  Drake = new perro(-10,188,120,120);
+  city1 = new escenario(0,0,1200,610);
   Drake1 = loadImage("Drake0.png");
    for(int i = 0; i < images.length; i++){
       images[i] = loadImage("Drake"+ i +".png"); 
@@ -53,9 +53,12 @@ creditos.display();
    city1.display();
    Drake.display(); 
    Drake.move();
+   Drake.caida();
  }
  if(sel == 3){
    background(0);
-   
  }  
+    println(Drake.x);
+    //println(mouseY);
+    println(Drake.y);
 }

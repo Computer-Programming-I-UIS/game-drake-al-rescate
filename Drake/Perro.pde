@@ -28,4 +28,14 @@ class perro {
       image(Drake1,x,y,a,h); 
     }
   }
+  void caida(){
+   if(x > 65 && y == 188)
+     y = 284;   
+   if(x < 65 && y == 284 || x > 350 && y == 284) 
+   for(int i =0; i < 50;i+=4){     
+    frameRate(5);
+     y += i;
+     
+   }
+  }
 }
