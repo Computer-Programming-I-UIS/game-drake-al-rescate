@@ -7,11 +7,19 @@ Descripcion:       Al ser ejecutado el programa adentrara al usuario en un video
                    flechas del teclado.
 */
 int sel = 1;
+int cont;
 menu jugar;
 menu creditos;
 PImage titulo;
 perro Drake;
 escenario city1;
+huesos hueso1;
+huesos hueso12;
+huesos hueso13;
+huesos hueso14;
+huesos hueso15;
+huesos hueso16;
+huesos contador;
 
 int maxImages = 3;
 int imageIndex = 0;
@@ -25,11 +33,13 @@ void setup(){
   titulo = loadImage("titulo.png");
   Drake = new perro(-10,188,120,120);
   city1 = new escenario(0,0,1200,610);
-  Drake1 = loadImage("Drake0.png");
-   for(int i = 0; i < images.length; i++){
-      images[i] = loadImage("Drake"+ i +".png"); 
-      frameRate(15);
-   }
+  hueso1 = new huesos(150,340,38,25);
+  hueso12 = new huesos(300,340,38,25);
+  hueso13 = new huesos(415,240,38,25);
+  hueso14 = new huesos(580,300,38,25);
+  hueso15 = new huesos(745,240,38,25);
+  hueso16 = new huesos(890,345,38,25);  
+   
 }
 
 void draw(){
@@ -49,16 +59,36 @@ jugar.display();
 creditos.display();
  } 
    
- if(sel == 2){ 
+ if(sel == 2){
    city1.display();
-   Drake.display(); 
-   Drake.move();
+   
+   Drake.display();
+   Drake.move();   
    Drake.caida();
+   if(cont == 0){
+     hueso1.display(); 
+   }
+     hueso1.contador();
+   if(cont <= 1)
+     hueso12.display();
+   if(cont <= 2)
+     hueso13.display();
+   if(cont <= 3)
+     hueso14.display();
+   if(cont <= 4)
+     hueso15.display();
+   if(cont <= 5)
+     hueso16.display();
  }
  if(sel == 3){
    background(0);
- }  
-    println(Drake.x);
-    //println(mouseY);
-    println(Drake.y);
+ }
+ if(sel == 4){
+   background(0);
+   textSize(40);
+   text("GAME OVER",500,300);
+ }
+    //println(Drake.x);
+    //println(mouseX);
+    //println(Drake.y);
 }
