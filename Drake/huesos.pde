@@ -17,11 +17,12 @@ class huesos{
  
  void contador(){      
    
-   if(Drake.x+55 == hueso1.x||Drake.x+55 == hueso12.x||Drake.x+55 == hueso13.x||Drake.x+55 == hueso14.x){
+   if(Drake.x+60 == hueso1.x||Drake.x+60 == hueso12.x||Drake.x+60 == hueso13.x||Drake.x+60 == hueso14.x){
      cont = cont + 1;
    }   
-   textSize(18);  // Cambiar el tamaño del texto
-   text("SCORE:",40,20);
+   fill(0);
+   textSize(18);  // Cambia el tamaño del texto
+   text("SCORE:",40,20); 
    text(cont,80,20);
   
    
