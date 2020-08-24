@@ -6,6 +6,11 @@ Descripcion:       Al ser ejecutado el programa adentrara al usuario en un video
                    a su mejor amigo,  este cuenta con una movilidad dada por las
                    flechas del teclado.
 */
+import ddf.minim.*; // Biblioteca de sonido
+
+Minim musica;       // Crea variable para el objeto Minim
+AudioPlayer fondo;  // crea objeto audio player (para reproducir audio)
+
 boolean salto = false;
 int sel = 1;
 int cont;
@@ -25,20 +30,26 @@ huesos hueso15;
 huesos hueso16;
 huesos contador;
 
-PFont font; 
+PFont font1;
+PFont menu;
 int maxIm = 3;
 int imageIndex = 0;
 PImage [] drakeim = new PImage[maxIm];
 
 
 void setup(){
-  size(1000,600);
   
+  size(1000,600);
+  musica = new Minim(this);
+  fondo = musica.loadFile("fondo.mp3"); 
+     fondo.play();
+     fondo.loop();
   jugar = new menu((width/2),(height/2),"JUGAR");
   creditos = new menu(jugar.x,jugar.y+50,"CREDITOS");
   salir = new menu(jugar.x,creditos.y+50,"SALIR");
   credit = new menu(width/2,600,"CREDITOS");
-  font = loadFont("CambriaMath-48.vlw");  // Llama la nueva fuente
+  font1 = loadFont("CambriaMath-48.vlw");  // Llama la nueva fuente
+  menu = loadFont("Square721BT-BoldCondensed-48.vlw");  // Llama la nueva fuente
   everyone = loadImage("everyone.png");
   titulo = loadImage("titulo.png");
   Drake = new perro(-10,185,120,120);
@@ -49,10 +60,12 @@ void setup(){
   hueso13 = new huesos(530,340,38,25);
   hueso14 = new huesos(720,240,38,25);
   hueso15 = new huesos(800,240,38,25);
-  hueso16 = new huesos(800,345,38,25);   
+  hueso16 = new huesos(800,345,38,25); 
+       
 }
 
-void draw(){
+void draw(){  
+  
 if(mousePressed == true){
   if(mouseX >= jugar.x -45 && mouseX <= jugar.x + 45 && mouseY<= jugar.y  && mouseY >= jugar.y -30){
   sel = 2;
@@ -75,11 +88,11 @@ salir.display();
  } 
    
  if(sel == 2){
-   nivel1.display();
+    nivel1.display();
    
-   Drake.display();
-   Drake.move();   
-   Drake.caida();
+    Drake.display();
+    Drake.move();   
+    Drake.caida();
    if(cont == 0){
      hueso1.display(); 
    }
@@ -95,6 +108,7 @@ salir.display();
    if(cont <= 5)
      hueso16.display();
  }
+ 
  if(sel == 3){
    credit.credits();
  }
@@ -103,6 +117,10 @@ salir.display();
    background(0);
    textSize(40);   
    text("GAME OVER",500,300);
+   text("Presione 'r' para volver al menú",500,300);
+   if(keyPressed && key == 'r'|| key == 'R'){
+     sel = 1;
+   }
  } 
     println(Drake.x);
     //println(mouseY);    

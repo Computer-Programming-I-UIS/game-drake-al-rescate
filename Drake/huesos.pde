@@ -21,9 +21,10 @@ class huesos{
      cont = cont + 1;
    }   
    fill(0);
-   textSize(18);  // Cambia el tamaño del texto
-   text("SCORE:",40,20); 
-   text(cont,80,20);
+   textFont(menu);
+   textSize(30);  // Cambia el tamaño del texto
+   text("SCORE:",65,45); 
+   text(cont,120,45);
   
    
  }
