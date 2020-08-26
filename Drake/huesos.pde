@@ -23,7 +23,7 @@ class huesos{
      }
      
    }   
-   fill(0);
+  // fill(0);
    textFont(menu);
    textSize(30);  // Cambia el tamaño del texto
    text("SCORE:",65,45); 

@@ -2,9 +2,9 @@
                    -B1 Karen Rangel
 
 Descripcion:       Al ser ejecutado el programa adentrara al usuario en un videojuego
-                   en el que su personaje principal es un perrito que busca rescatar
-                   a su mejor amigo,  este cuenta con una movilidad dada por las
-                   flechas del teclado.
+                   de plataformas en el que su personaje principal es un perrito 
+                   que busca rescatar a su mejor amiga, este cuenta con una movilidad 
+                   dada por las flechas del teclado.
 */
 import ddf.minim.*; // Biblioteca de sonido
 
@@ -16,16 +16,27 @@ float speed = 0;
 int sel = 1;
 int level1=1;
 int cont;
+
+PImage titulo;
+PImage everyone;
+PImage flechas;
+PImage jump;
+PImage ganar;
+
+PImage his1;
+PImage his2;
+PImage his3;
+
 menu jugar;
 menu creditos;
 menu salir;
 menu credit;
 
-PImage titulo;
-PImage everyone;
-
 perro Drake;
+
 escenario nivel1;
+escenario nivelfin;
+
 huesos hueso1;
 huesos hueso12;
 huesos hueso13;
@@ -62,13 +73,20 @@ void setup(){
   
   font1 = loadFont("CambriaMath-48.vlw");  // Llama la nueva fuente  
   menu = loadFont("Square721BT-BoldCondensed-48.vlw");  // Llama la nueva fuente
+  
   everyone = loadImage("everyone.png");
   titulo = loadImage("titulo.png");
-  
+  flechas = loadImage("flechas.png");
+  jump = loadImage("jump.png");
+  ganar = loadImage("ganar.jpg");
+  his1 = loadImage("his1.jpg");
+  his2 = loadImage("his2.jpg");
+  his3 = loadImage("his3.jpg");
   
   Drake = new perro(-10,185,120,120);
   
   nivel1 = new escenario(0,0,2000,606);
+  nivelfin = new escenario(-733,0,1733,600);
   
   hueso1 = new huesos(130,240,38,25);
   hueso12 = new huesos(270,340,38,25);
@@ -112,12 +130,35 @@ creditos.display();
 salir.display();
  } 
    
- if(sel == 2){   
-   if(level1 == 1){
+ if(sel == 2){
+   background(0);
+  
+  image(his1,50,100,300,300);    
+  image(his2,350,100,300,300);    
+  image(his3,650,100,300,300);
+   fill(250);
+   textSize(25);
+   text("Pressione 's' para omitir",840,560);
+   if(keyPressed && key == 's'|| key == 'S'){
+     sel = 3;
+   }
+ }
+ 
+ if(sel == 3){
+   if(level1 == 1){ 
       nivel1.display();
       Drake.move();   
       Drake.caida();
-      
+     if(Drake.x > -20 && Drake.x < 100 ){
+       textSize(16);
+       text("MOVE",85,170);
+      image(flechas,40,180,90,30);
+     }
+     if(Drake.x > 470 && Drake.x < 570 ){
+       textSize(16);
+       text("JUMP",575,240);
+      image(jump,560,250,30,30);
+     }
       if(cont == 0){
         hueso1.display(); 
         hueso1.contador();
@@ -133,10 +174,9 @@ salir.display();
       if(cont <= 3){
         hueso14.display();
         hueso14.contador();
-      }
+      }      
    }
-   if(level1 == 2){
-      nivel1.x  = -1000;
+   if(level1 == 2){     
       nivel1.display();
       Drake.move();   
       Drake.caida(); 
@@ -162,19 +202,36 @@ salir.display();
         hueso19.contador();
       }
    }
+ if(level1 == 3){
+     nivelfin.display2();
+     Drake.move();   
+     Drake.caida();
+   }
+   if(level1 == 4){
+     image(ganar,0,0,998,600);
+     fill(0);
+     textSize(45);
+     text("LO LOGRASTE!!",475,590); 
+     textSize(25);
+     text("Pressione 'r' para volver",850,40);
+    if(keyPressed && key == 'r'|| key == 'R'){
+     sel = 1;
+    }   
+   }
       hueso19.contador();
    
  }
  
- if(sel == 3){
+ if(sel == 5){
    credit.credits();
+   fill(250);
    textSize(25);
    text("Pressione 'r' para volver",850,40);
    if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
    }
  }
- if(sel == 4){
+ if(sel == 6){
    fill(255,255);
    background(0);
    textSize(40);   
@@ -185,7 +242,7 @@ salir.display();
      sel = 1;
    }
  } 
-    println(Drake.x);
+    //println(Drake.x);
     //println(mouseY);    
     //println(Drake.y);
     //println(level1);

@@ -9,4 +9,9 @@ class escenario extends perro{
   nivel1 = loadImage("nivel1.jpg");
  image(nivel1,x,y,a,h);
  }
+ void display2(){
+  PImage nivelfin;
+  nivelfin = loadImage("nivelfin.jpg");
+ image(nivelfin,x,y,a,h);
+ }
 }
