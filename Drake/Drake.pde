@@ -32,7 +32,9 @@ huesos hueso13;
 huesos hueso14;
 huesos hueso15;
 huesos hueso16;
-huesos contador;
+huesos hueso17;
+huesos hueso18;
+huesos hueso19;
 
 PFont font1;
 PFont menu;
@@ -72,8 +74,11 @@ void setup(){
   hueso12 = new huesos(270,340,38,25);
   hueso13 = new huesos(530,340,38,25);
   hueso14 = new huesos(720,240,38,25);
-  hueso15 = new huesos(800,240,38,25);
-  hueso16 = new huesos(800,345,38,25); 
+  hueso15 = new huesos(140,285,38,25);
+  hueso16 = new huesos(265,235,38,25);
+  hueso17 = new huesos(420,330,38,25);
+  hueso18 = new huesos(720,330,38,25);
+  hueso19 = new huesos(880,235,38,25);
   
   for(int i = 0; i < drakeim.length; i++){
      drakeim[i] = loadImage("Drake"+ i +".png");
@@ -112,55 +117,76 @@ salir.display();
       nivel1.display();
       Drake.move();   
       Drake.caida();
+      
+      if(cont == 0){
+        hueso1.display(); 
+        hueso1.contador();
+      }    
+      if(cont <= 1){
+        hueso12.display();
+        hueso12.contador();
+      }
+      if(cont <= 2){
+        hueso13.display();
+        hueso13.contador();
+      }
+      if(cont <= 3){
+        hueso14.display();
+        hueso14.contador();
+      }
    }
    if(level1 == 2){
       nivel1.x  = -1000;
       nivel1.display();
       Drake.move();   
-      Drake.caida();    
+      Drake.caida(); 
+      
+      if(cont <= 4){
+        hueso15.display();
+        hueso15.contador();
+      }
+      if(cont <= 5){
+        hueso16.display();
+        hueso16.contador();
+      }
+      if(cont <= 6){
+        hueso17.display();
+        hueso17.contador();
+      }
+      if(cont <= 7){
+        hueso18.display();
+        hueso18.contador();
+      }
+      if(cont <= 8){
+        hueso19.display();
+        hueso19.contador();
+      }
    }
-    if(cont == 0){
-      hueso1.display(); 
-      hueso1.contador();
-    }    
-    if(cont <= 1){
-      hueso12.display();
-      hueso12.contador();
-    }
-    if(cont <= 2){
-      hueso13.display();
-      hueso13.contador();
-    }
-    if(cont <= 3){
-      hueso14.display();
-      hueso14.contador();
-    }
-    if(cont <= 4){
-      hueso15.display();
-      hueso15.contador();
-    }
-    if(cont <= 5){
-      hueso16.display();
-      hueso16.contador();
-    }
+      hueso19.contador();
+   
  }
  
  if(sel == 3){
    credit.credits();
+   textSize(25);
+   text("Pressione 'r' para volver",850,40);
+   if(keyPressed && key == 'r'|| key == 'R'){
+     sel = 1;
+   }
  }
  if(sel == 4){
    fill(255,255);
    background(0);
    textSize(40);   
    text("GAME OVER",500,300);
-   textSize(18);
+   textSize(25);
    text("Presione 'r' para volver al menú",500,340);
    if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
    }
  } 
-    //println(Drake.x);
+    println(Drake.x);
     //println(mouseY);    
     //println(Drake.y);
-    println(level1);
+    //println(level1);
 }

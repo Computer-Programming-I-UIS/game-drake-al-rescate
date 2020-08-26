@@ -18,6 +18,9 @@ class huesos{
  void contador(){   
    if(Drake.x +60 >= x && Drake.x +60 <= x +40 && Drake.y+60 > y && Drake.y+60 < y +20 ){
      cont = cont + 1;
+     if(cont==9){
+      hueso19.y = -32; 
+     }
      
    }   
    fill(0);
