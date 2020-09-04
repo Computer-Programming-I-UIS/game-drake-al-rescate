@@ -65,7 +65,7 @@ void setup(){
   musica = new Minim(this);
   fondo = musica.loadFile("fondo.mp3");
      //fondo.play();
-     fondo.loop(); // Reproducir musica y repetirla
+     //fondo.loop(); // Reproducir musica y repetirla
   jugar = new menu((width/2),(height/2),"JUGAR");
   creditos = new menu(jugar.x,jugar.y+50,"CREDITOS");
   salir = new menu(jugar.x,creditos.y+50,"SALIR");
