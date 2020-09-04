@@ -16,14 +16,14 @@ Apto para todo publico.
 ## Requisistos
 •La funcion del juego esta sujeta a descargar la libreria minim.
 ## Galeria:
-Nuestro protagonista (Drake):
+•Nuestro protagonista (Drake):
 ![./Drake.png](./Drake1.png)
-Nuestro menú principal:
+•Nuestro menú principal:
 ![./menu.png](./menu.png)
-Control de juego:
+•Control de juego:
 ![./control1.gif](./control1.gif)
 ![./control2.gif](./control2.gif)
-Para volver al menu principal:
+•Para volver al menu principal:
 ![./return.png](./return.png)
 
 
