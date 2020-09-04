@@ -11,7 +11,7 @@ import ddf.minim.*; // Biblioteca de sonido
 Minim musica;       // Crea variable para el objeto Minim
 AudioPlayer fondo;  // crea objeto audio player (para reproducir audio)
 
-float gravedad = 4.5;
+float gravedad = 5.5;
 float speed = 0;
 int sel = 1;
 int level1=1;
@@ -103,18 +103,16 @@ void setup(){
   }
   for(int e = 0; e < drakesalt.length; e++){
       drakesalt[e] = loadImage("salto"+ e +".png");
-  }
-       
+  }       
 }
 
 void draw(){  
-  
 if(mousePressed == true){
   if(mouseX >= jugar.x -45 && mouseX <= jugar.x + 45 && mouseY<= jugar.y  && mouseY >= jugar.y -30){
   sel = 2;
   }
   if(mouseX >= creditos.x -70 && mouseX <= creditos.x + 70 && mouseY<= creditos.y  && mouseY >= creditos.y -30){
-  sel = 3;
+  sel = 5;
   }
   if(mouseX >= salir.x -45 && mouseX <= salir.x + 40 && mouseY<= salir.y  && mouseY >= salir.y -30){
    exit(); 
@@ -216,10 +214,10 @@ salir.display();
      text("Pressione 'r' para volver",850,40);
     if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
+     level1 = 1;     
     }   
    }
-      hueso19.contador();
-   
+      hueso19.contador();   
  }
  
  if(sel == 5){
@@ -229,6 +227,7 @@ salir.display();
    text("Pressione 'r' para volver",850,40);
    if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
+     
    }
  }
  if(sel == 6){
@@ -241,7 +240,7 @@ salir.display();
    if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
    }
- } 
+ }
     //println(Drake.x);
     //println(mouseY);    
     //println(Drake.y);

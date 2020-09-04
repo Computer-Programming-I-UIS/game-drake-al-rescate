@@ -25,9 +25,12 @@ class perro {
         y = y -120;        
         image(drakesalt[imsaltIndex],x,y,a,h);
         imsaltIndex = (imsaltIndex+1)% drakesalt.length;
-
       }
+      if(keyCode == UP ){
+        image(drakesalt[imsaltIndex],x,y,a,h);
+        imsaltIndex = (imsaltIndex+1)% drakesalt.length;
       }
+    }
     else
       image(drakeim[imageIndex],x,y,a,h); 
     }
@@ -39,19 +42,19 @@ class perro {
      
    if(level1 == 1){
      nivel1.x  = 0;
-     if(x > -20 && x < 150 &&  y > 185){
+     if(x > -20 && x < 150 &&  y > 185 && y < 200){
        y = 185;
        speed = 0;
      }
-     if(x > 160 && x < 590 && y > 285){
+     if(x > 160 && x < 590 && y > 285 && y < 320){
        y = 285;
        speed = 0;
      }
-     if(x > 595 && x < 785 && y > 185){
+     if(x > 590 && x < 785 && y > 185 && y < 200){
        y = 185;
        speed = 0;
      }
-     if(x > 790 && x < width && y > 240){
+     if(x > 790 && x < width && y > 240 && y < 255){
        y = 240;
        speed = 0;
        if(x > width -70 && level1 == 1){
@@ -62,19 +65,19 @@ class perro {
    }
      if(level1 == 2){
          nivel1.x  = -1000;
-      if(x > - 80 && x < 150 && y > 240){        
+      if(x > - 80 && x < 150 && y > 240 && y < 255){        
          y = 240;
          speed = 0;        
          }
-       if(x > 150 && x < 325 && y > 180){        
+       if(x > 150 && x < 325 && y > 180 && y < 195){        
          y = 180;
-         speed = 0;         
+         speed = 0;
        }
-       if(x > 330  && x < 750 && y > 285){        
+       if(x > 330  && x < 750 && y > 285 && y < 300){        
          y = 285;
          speed = 0;         
        }
-       if(x > 755  && x < 900 && y > 185){        
+       if(x > 755  && x < 900 && y > 185 && y < 300){        
          y = 185;
          speed = 0;         
        }
@@ -84,34 +87,43 @@ class perro {
        }
      }
      if(level1 == 3){
-       if(x > - 50 && x < 30 && y > 420){        
+       if(x > - 50 && x < 30 && y > 420 && y < 435){        
          y = 420;
          speed = 0;        
          }         
-       if(x > 80 && x < 290 && y > 380){        
+       if(x > 80 && x < 290 && y > 380 && y < 395){        
          y = 380;
          speed = 0;        
          }
-       if(x > 370 && x < 510 && y > 400){        
+       if(x > 370 && x < 510 && y > 400 && y < 415){        
          y = 400;
          speed = 0;        
          }
-       if(x > 600 && x < 1000 && y > 430){        
+       if(x > 600 && x < 1000 && y > 430 && y < 445){        
          y = 430;
-         speed = 0;        
+         speed = 0; 
          }
         if(x > 670){        
-          level1 = 4;      
+          level1 = 4;
+           x = -10;
+           y = 185;
+           speed = 0;
          }
         
        
-     }
+     }    
+   vida();
+  }
+  
+  
+  void vida(){
     if(y > height+20){
      cont = 0;
      vid -= 1;
       if(vid == 0){
         delay(400);
-        sel = 4;
+        sel = 6;
+        vid = 3;
       }
         delay(700);
         x = -10;
@@ -119,11 +131,6 @@ class perro {
         speed = 0;
         level1 = 1;
      }   
-   vida();
-  }
-  
-  
-  void vida(){
    PImage corazon;
    corazon = loadImage("corazon.png");   
    int x = 820;   
