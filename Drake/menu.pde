@@ -9,9 +9,9 @@ class menu {
   }
   
   void display(){
-    fill(250);
+    fill(0);
     textFont(menu);
-    textSize(35);       // Cambia el tamaño del texto
+    textSize(55);       // Cambia el tamaño del texto
     textAlign(CENTER);  //Centra el texto en pantalla
     text(texto,x,y);
   }

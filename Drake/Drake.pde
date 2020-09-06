@@ -17,6 +17,7 @@ int sel = 1;
 int level1=1;
 int cont;
 
+PImage menufondo;
 PImage titulo;
 PImage everyone;
 PImage flechas;
@@ -67,18 +68,20 @@ void setup(){
      //fondo.play();
      //fondo.loop(); // Reproducir musica y repetirla
   jugar = new menu((width/2),(height/2),"JUGAR");
-  creditos = new menu(jugar.x,jugar.y+50,"CREDITOS");
-  salir = new menu(jugar.x,creditos.y+50,"SALIR");
+  creditos = new menu(jugar.x,jugar.y+80,"CREDITOS");
+  salir = new menu(jugar.x,creditos.y+80,"SALIR");
   credit = new menu(width/2,600,"CREDITOS");
   
   font1 = loadFont("CambriaMath-48.vlw");  // Llama la nueva fuente  
   menu = loadFont("Square721BT-BoldCondensed-48.vlw");  // Llama la nueva fuente
   
-  everyone = loadImage("everyone.png");
+  menufondo = loadImage("menufondo.jpg");
   titulo = loadImage("titulo.png");
+  everyone = loadImage("everyone.png");
   flechas = loadImage("flechas.png");
   jump = loadImage("jump.png");
   ganar = loadImage("ganar.jpg");
+  
   his1 = loadImage("his1.jpg");
   his2 = loadImage("his2.jpg");
   his3 = loadImage("his3.jpg");
@@ -108,24 +111,23 @@ void setup(){
 
 void draw(){  
 if(mousePressed == true){
-  if(mouseX >= jugar.x -45 && mouseX <= jugar.x + 45 && mouseY<= jugar.y  && mouseY >= jugar.y -30){
+  if(mouseX >= jugar.x -75 && mouseX <= jugar.x + 75 && mouseY<= jugar.y  && mouseY >= jugar.y -50){
   sel = 2;
   }
-  if(mouseX >= creditos.x -70 && mouseX <= creditos.x + 70 && mouseY<= creditos.y  && mouseY >= creditos.y -30){
+  if(mouseX >= creditos.x -100 && mouseX <= creditos.x + 100 && mouseY<= creditos.y  && mouseY >= creditos.y -50){
   sel = 5;
   }
-  if(mouseX >= salir.x -45 && mouseX <= salir.x + 40 && mouseY<= salir.y  && mouseY >= salir.y -30){
+  if(mouseX >= salir.x -65 && mouseX <= salir.x + 65 && mouseY<= salir.y  && mouseY >= salir.y -50){
    exit(); 
   }
 }
- if(sel == 1){ 
-  background(0);
-  textSize(90);
+ if(sel == 1){
+  image(menufondo,0,0);
   image(titulo,70,100);
   image(everyone,25,480,71,100);
-jugar.display();
-creditos.display();
-salir.display();
+  jugar.display();
+  creditos.display();
+  salir.display();
  } 
    
  if(sel == 2){
@@ -227,7 +229,7 @@ salir.display();
    text("Pressione 'r' para volver",850,40);
    if(keyPressed && key == 'r'|| key == 'R'){
      sel = 1;
-     
+     credit.y = 600;
    }
  }
  if(sel == 6){
@@ -238,7 +240,7 @@ salir.display();
    textSize(25);
    text("Presione 'r' para volver al menú",500,340);
    if(keyPressed && key == 'r'|| key == 'R'){
-     sel = 1;
+     sel = 1;     
    }
  }
     //println(Drake.x);
