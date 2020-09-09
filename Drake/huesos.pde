@@ -1,17 +1,11 @@
-class huesos{
-  int x,y,a,h;
- huesos(int tx, int ty,int ta,int th){
-   x = tx;
-   y = ty;
-   a = ta;
-   h = th;
- }
+class huesos extends perro{
+  
+ huesos(int x, int y, int a, int h){
+   super(x,y,a,h);   
+ } 
  
- 
- void display(){ 
-  PImage hueso;
-  hueso = loadImage("hueso.png");
- 
+ void display(){
+   
   image(hueso,x,y,a,h);
  }
  
@@ -20,10 +14,9 @@ class huesos{
      cont = cont + 1;
      if(cont==9){
       hueso19.y = -32; 
-     }
-     
+     }     
    }   
-  // fill(0);
+
    textFont(menu);
    textSize(30);  // Cambia el tamaño del texto
    text("SCORE:",65,45); 

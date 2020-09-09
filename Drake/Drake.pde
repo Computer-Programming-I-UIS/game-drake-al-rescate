@@ -14,7 +14,7 @@ AudioPlayer fondo;  // crea objeto audio player (para reproducir audio)
 float gravedad = 5.5;
 float speed = 0;
 int sel = 1;
-int level1=1;
+int level1=2;
 int cont;
 
 PImage menufondo;
@@ -23,6 +23,10 @@ PImage everyone;
 PImage flechas;
 PImage jump;
 PImage ganar;
+PImage corazon;
+PImage hueso;
+
+
 
 PImage his1;
 PImage his2;
@@ -37,6 +41,8 @@ perro Drake;
 
 escenario nivel1;
 escenario nivelfin;
+
+vida coracont;
 
 huesos hueso1;
 huesos hueso12;
@@ -66,7 +72,7 @@ void setup(){
   musica = new Minim(this);
   fondo = musica.loadFile("fondo.mp3");
      //fondo.play();
-     //fondo.loop(); // Reproducir musica y repetirla
+     fondo.loop(); // Reproducir musica y repetirla
   jugar = new menu((width/2),(height/2),"JUGAR");
   creditos = new menu(jugar.x,jugar.y+80,"CREDITOS");
   salir = new menu(jugar.x,creditos.y+80,"SALIR");
@@ -81,6 +87,8 @@ void setup(){
   flechas = loadImage("flechas.png");
   jump = loadImage("jump.png");
   ganar = loadImage("ganar.jpg");
+  corazon = loadImage("corazon.png");
+  hueso = loadImage("hueso.png");
   
   his1 = loadImage("his1.jpg");
   his2 = loadImage("his2.jpg");
@@ -90,6 +98,8 @@ void setup(){
   
   nivel1 = new escenario(0,0,2000,606);
   nivelfin = new escenario(-733,0,1733,600);
+  
+  coracont = new vida(820,25,0,0);
   
   hueso1 = new huesos(130,240,38,25);
   hueso12 = new huesos(270,340,38,25);
@@ -109,7 +119,7 @@ void setup(){
   }       
 }
 
-void draw(){  
+void draw(){
 if(mousePressed == true){
   if(mouseX >= jugar.x -75 && mouseX <= jugar.x + 75 && mouseY<= jugar.y  && mouseY >= jugar.y -50){
   sel = 2;
@@ -149,6 +159,7 @@ if(mousePressed == true){
       nivel1.display();
       Drake.move();   
       Drake.caida();
+      coracont.vidacont();
      if(Drake.x > -20 && Drake.x < 100 ){
        textSize(16);
        text("MOVE",85,170);
@@ -174,12 +185,13 @@ if(mousePressed == true){
       if(cont <= 3){
         hueso14.display();
         hueso14.contador();
-      }      
+      }
    }
    if(level1 == 2){     
       nivel1.display();
       Drake.move();   
-      Drake.caida(); 
+      Drake.caida();
+      coracont.vidacont();
       
       if(cont <= 4){
         hueso15.display();
@@ -206,6 +218,7 @@ if(mousePressed == true){
      nivelfin.display2();
      Drake.move();   
      Drake.caida();
+     coracont.vidacont();
    }
    if(level1 == 4){
      image(ganar,0,0,998,600);
